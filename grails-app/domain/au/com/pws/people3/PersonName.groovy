@@ -6,21 +6,19 @@ package au.com.pws.people3
  * firstName - refers to the first or christian name, that is the specific name for this member of the group
  * titles - refers to honorifics which generally prefix a name
  * honorifics - refers to honorifics which suffix a name, such as awards
- * nickName - other names used instead of the person's full name
+ * nickName - other name used instead of the person's full name
  * middleNames - refers to middle names, name parts other than the above
  *
  * If a person has only 1 name then that will be put into the lastName field, this field is compulsory
  *
- * Was thinking of the following for determining display order, but I think if we link the order to CULTURE that
- * might be a more elegant approach.
- * Note the field names are also meant to infer order. A full name can generally be displayed in two orders:
- * FIRST_FIRST or LAST_FIRST
+ * Determining display order,is based on CULTURE which then determines how the fields are ordered
+ * A full name can generally be displayed in two orders:
+ * FIRST_FIRST
+ * If Culture is ENGLISH then this order is: title first name middle name surname honorifics
+ * or LAST_FIRST
+ * If Culture is ENGLISH then this order is: surname, first name middle name, title, honorifics
  *
  * If there is no culture value assume it is ENGLISH
- * If there is no preferredDisplayOrder assume it is FIRST_FIRST
- * (title first name middle name surname honorifics)
- * If there is no reversedDisplayOrder assume it is LAST_FIRST
- * (surname, first name middle name, title, honorifics)
  *
  */
 
@@ -33,8 +31,6 @@ class PersonName {
 		lastName blank:false
 		titles nullable: true, blank: true
 		honorifics nullable: true, blank: true
-//		preferredDisplayOrder nullable:true, blank: true
-//		reversedDisplayOrder nullable:true, blank: true
 		culture nullable:false, blank:false
 		contributor nullable:true, blank:true
 		nickName nullable: true, blank: true
@@ -45,8 +41,6 @@ class PersonName {
 	String titles
 	String honorifics
 	String nickName
-//	NameOrder preferredDisplayOrder
-//	NameOrder reversedDisplayOrder
 	TypeOfName typeOfName
 	Culture culture
 	String contributor //who gave us this name, useful for admin purposes
@@ -65,7 +59,6 @@ class PersonName {
 	String displayNameReversed(){
 		String reversedName = ""
 //		(last name, first name middle name, title, honorifics)
-//		if(!reversedDisplayOrder || reversedDisplayOrder.equals(NameOrder.LAST_FIRST)){
 			if(lastName){
 				reversedName += lastName
 			}
@@ -81,14 +74,12 @@ class PersonName {
 			if (honorifics){
 				reversedName += ", "+display(honorifics)
 			}
-//		}
 		reversedName
 	}
 
 	String toString(){
 		String fullName = ""
 //		(title first name middle name surname honorifics)
-//		if(!preferredDisplayOrder || preferredDisplayOrder.equals(NameOrder.FIRST_FIRST)){
 			if (titles){
 				fullName+= display(titles) }
 			if (firstName){
@@ -105,7 +96,6 @@ class PersonName {
 				if(fullName.size()>0){fullName+=" "}
 				fullName+=display(honorifics)
 			}
-//		}
 		fullName
 	}
 
