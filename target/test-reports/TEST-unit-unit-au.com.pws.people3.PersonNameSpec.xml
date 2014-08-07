@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="pc202179.nla.gov.au" name="au.com.pws.people3.PersonNameSpec" tests="3" time="0.646" timestamp="2014-08-07T00:08:53">
+  <properties />
+  <testcase classname="au.com.pws.people3.PersonNameSpec" name="personName is saved" time="0.57" />
+  <testcase classname="au.com.pws.people3.PersonNameSpec" name="personName displays" time="0.032" />
+  <testcase classname="au.com.pws.people3.PersonNameSpec" name="personName displays in reverse order" time="0.026" />
+  <system-out><![CDATA[--Output from personName is saved--
+--Output from personName displays--
+--Output from personName displays in reverse order--
+]]></system-out>
+  <system-err><![CDATA[--Output from personName is saved--
+--Output from personName displays--
+--Output from personName displays in reverse order--
+]]></system-err>
+</testsuite>

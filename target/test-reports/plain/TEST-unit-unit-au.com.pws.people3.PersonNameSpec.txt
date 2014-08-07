@@ -1,0 +1,16 @@
+Testsuite: au.com.pws.people3.PersonNameSpec
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.646 sec
+------------- Standard Output ---------------
+--Output from personName is saved--
+--Output from personName displays--
+--Output from personName displays in reverse order--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from personName is saved--
+--Output from personName displays--
+--Output from personName displays in reverse order--
+------------- ---------------- ---------------
+
+Testcase: personName is saved took 0.57 sec
+Testcase: personName displays took 0.032 sec
+Testcase: personName displays in reverse order took 0.026 sec
